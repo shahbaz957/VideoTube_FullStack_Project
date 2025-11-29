@@ -1,6 +1,6 @@
 # VideoTube - YouTube-like Video Sharing Platform
 
-![VideoTube Banner](https://user-images.githubusercontent.com/your-image-link/banner.png)  
+![VideoTube Banner](FrontEnd/public/vidTube.jpg)  
 
 **VideoTube** is a full-featured video sharing platform inspired by YouTube. Users can upload videos, deleting them, create profiles, subscribe to channels, like videos, comment, and much more. This app provides a complete end-to-end solution for video sharing, making it ideal for learning and showcasing full-stack development skills.
 
