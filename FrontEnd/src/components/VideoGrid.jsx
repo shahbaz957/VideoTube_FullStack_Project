@@ -22,7 +22,7 @@ function VideoGrid() {
   useEffect(() => {
     fetchVideos(page);
     console.log(videos)
-  }, [page]);
+  }, [page , videos]);
   
   const filteredVideos = videos?.filter(video => video.title.toLowerCase().includes(query.toLowerCase()))
   console.log(filteredVideos)
@@ -30,7 +30,7 @@ function VideoGrid() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Video Grid */}
-      <div className="grid grid-cols-4 gap-4 flex-grow">
+      <div className="grid grid-cols-4 gap-4 grow">
         {filteredVideos?.map((video) => (
           <VideoCard key={video._id} video={video} />
         ))}

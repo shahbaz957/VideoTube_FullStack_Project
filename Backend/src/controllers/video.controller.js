@@ -5,7 +5,6 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import mongoose from "mongoose";  
 import { asyncHandler } from "../utils/asyncHandler.js";
-// import { v2 as cloudinary } from "cloudinary";
 import cloudinary from "../config/cloudinary.js";
 
 const getAllVideos = asyncHandler(async (req, res) => {
@@ -13,8 +12,8 @@ const getAllVideos = asyncHandler(async (req, res) => {
     page = 1,
     limit = 10,
     query,
-    sortBy = "createdAt",     // better default than views
-    sortType = "desc",        // desc = newest first
+    sortBy = "createdAt",     
+    sortType = "desc",        
     userId,
   } = req.query;
 
@@ -253,13 +252,11 @@ const updateThumbnail = asyncHandler(async (req, res) => {
     await cloudinary.uploader.destroy(video.thumbnail.public_id);
   }
 
-  // set the new Thumbnail URL
   video.thumbnail = {
     url: newThumbnail.url,
     public_id: newThumbnail.public_id,
   };
 
-  // save the Video DB
   await video.save();
 
   // Return the Response
@@ -328,7 +325,6 @@ const getVideosByOwner = asyncHandler(async (req, res) => {
     "username avatar"
   );
 
-  // Instead of throwing 404, just send empty array if no videos
   return res
     .status(200)
     .json(new ApiResponse(200, { videos: videos || [] }, "Videos fetched successfully"));
